@@ -1,0 +1,108 @@
+main()=>runApp(myApp());
+
+class myApp extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return MaterialApp(
+      title: "myApp",
+      home:Scaffold(
+        appBar: AppBar(
+          title: Text(
+              "三-基础组件",
+              style: TextStyle(
+                fontSize: 25,
+                color: Colors.white,
+                decoration: TextDecoration.underline,
+              ),
+          ),
+        ),
+        body: myHomePage(),
+      ),
+    );
+  }
+}
+
+class myHomePage extends StatefulWidget{
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return myHomePageState();
+  }
+}
+
+class myHomePageState extends State<myHomePage>{
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Column(
+     children: [
+       Text.rich(
+         TextSpan(
+           children: [
+             TextSpan(
+                 text: "图片和图标",
+                 style: TextStyle(
+                   color: Colors.black,
+                   fontSize: 22,
+                 )
+             ),
+             TextSpan(
+               text: "学习测试",
+               style: TextStyle(
+               fontSize: 15,
+                 color: Colors.black54,
+               ),
+             ),
+           ]
+         )
+       ),
+       Image(
+           image:AssetImage("images/summer.jpg"),
+         width: 4000,
+       ),
+       Image(
+           image: NetworkImage("https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Fbfcbbfe71d7dc29f99f25242b1541bfa29bf65d11c6ae-s0be4k_fw658&refer=http%3A%2F%2Fhbimg.b0.upaiyun.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1655564496&t=61ad5c297423c27a59b6fd2bddf62137"),
+       ),
+       Row(
+         mainAxisAlignment: MainAxisAlignment.center,
+         children: [
+           IconButton(
+               onPressed: ()=>print("Pressed"),
+               icon: Icon(Icons.thumb_up),
+           ),
+           ElevatedButton(
+               onPressed: (){},
+               child: Text(
+                 "评论",
+               )
+           ),
+           OutlinedButton(
+               onPressed: (){},
+               child: Text(
+                 "转发",
+               )
+           ),
+         ],
+       ),
+       Row(
+         mainAxisAlignment: MainAxisAlignment.center,
+         children: [
+           Icon(
+             Icons.wb_cloudy_sharp,
+             size: 40,
+           ),
+           Icon(
+             Icons.ac_unit_outlined,
+             size: 50,
+           ),
+           Icon(
+             Icons.wb_cloudy_sharp,
+             size: 40,
+           ),
+         ],
+       ),
+     ],
+    );
+  }
+}
