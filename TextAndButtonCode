@@ -1,0 +1,108 @@
+main()=>runApp(myApp());
+
+class myApp extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return MaterialApp(
+      title: "myApp",
+      home:Scaffold(
+        appBar: AppBar(
+          title: Text(
+              "三-基础组件",
+              style: TextStyle(
+                fontSize: 25,
+                color: Colors.white,
+                decoration: TextDecoration.underline,
+              ),
+          ),
+        ),
+        body: myHomePage(),
+      ),
+    );
+  }
+}
+
+class myHomePage extends StatefulWidget{
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return myHomePageState();
+  }
+}
+
+class myHomePageState extends State<myHomePage>{
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Column(
+     children: [
+       Text.rich(
+         TextSpan(
+           children: [
+             TextSpan(
+                 text: "苏轼",
+                 style: TextStyle(
+                   color: Colors.black,
+                   fontSize: 22,
+                 )
+             ),
+             TextSpan(
+               text: "广为传颂的诗句：",
+               style: TextStyle(
+               fontSize: 15,
+                 color: Colors.black54,
+               ),
+             ),
+           ]
+         )
+       ),
+       Center(
+         child: Text(
+           "人有悲欢离合，月有阴晴圆缺.",
+           style: TextStyle(
+            fontSize: 20,
+           ),
+         ),
+       ),
+       Center(
+         child: Text(
+           "人生如梦，一尊还酹江月。",
+           style: TextStyle(
+             fontSize: 20,
+           ),
+         ),
+       ),
+       Center(
+         child: Text(
+           "但愿人长久，千里共婵娟。",
+           style: TextStyle(
+             fontSize: 20,
+           ),
+         ),
+       ),
+       Row(
+         mainAxisAlignment: MainAxisAlignment.center,
+         children: [
+           IconButton(
+               onPressed: ()=>print("Pressed"),
+               icon: Icon(Icons.thumb_up),
+           ),
+           ElevatedButton(
+               onPressed: (){},
+               child: Text(
+                 "评论",
+               )
+           ),
+           OutlinedButton(
+               onPressed: (){},
+               child: Text(
+                 "转发",
+               )
+           ),
+         ],
+       )
+     ],
+    );
+  }
+}
