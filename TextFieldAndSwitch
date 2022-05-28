@@ -1,0 +1,148 @@
+main()=>runApp(myApp());
+
+class myApp extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return MaterialApp(
+      title: "myApp",
+      home:Scaffold(
+        appBar: AppBar(
+          title: Text(
+              "三-基础组件",
+              style: TextStyle(
+                fontSize: 25,
+                color: Colors.white,
+                decoration: TextDecoration.underline,
+              ),
+          ),
+        ),
+        body: myHomePage(),
+      ),
+    );
+  }
+}
+
+class myHomePage extends StatefulWidget{
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return myHomePageState();
+  }
+}
+
+class myHomePageState extends State<myHomePage>{
+  bool _switchSelected=true;
+  bool _checkboxSelected=true;
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Column(
+     children: [
+       Text(
+           "单选开关,复选框和输入框",
+         style: TextStyle(
+           fontSize: 15,
+         ),
+       ),
+       Image(
+           image:AssetImage("images/summer.jpg"),
+         width: 150,
+       ),
+       Row(
+         children: [
+           Text(
+               "是否查看评论区：",
+             style: TextStyle(
+               fontSize: 15,
+               color: Colors.blue
+             ),
+           ),
+           Switch(
+             value: _switchSelected,//当前状态
+             onChanged:(value){
+               //重新构建页面
+               setState(() {
+                 _switchSelected=false;
+               });
+             },
+           ),
+         ],
+       ),
+       Row(
+         children: [
+           Text(
+             "开启查看评论区地址功能：",
+             style: TextStyle(
+                 fontSize: 15,
+                 color: Colors.blue
+             ),
+           ),
+           Checkbox(
+             value: _checkboxSelected,
+             activeColor: Colors.red, //选中时的颜色
+             onChanged:(value){
+               setState(() {
+                 _checkboxSelected=false;
+               });
+             } ,
+           ),
+         ],
+       ),
+       Row(
+         mainAxisAlignment: MainAxisAlignment.start,
+         children: [
+           TextButton.icon(
+               onPressed: (){},
+               icon: Icon(Icons.book_online,size: 30,),
+               label: Text(
+                 "评论：",
+                 style: TextStyle(
+                     fontSize: 20,
+                     color: Colors.blue,
+                 ),
+               ),
+           ),
+         ],
+       ),
+       Text(
+         "A：或许夏天总是充满遗憾,,,",
+         style: TextStyle(
+             fontSize: 15,
+             color: Colors.black54,
+         ),
+       ),
+       Text(
+         "B:夏天结束的速度是多少青春一天呢？",
+         style: TextStyle(
+           fontSize: 15,
+           color: Colors.black54,
+         ),
+       ),
+       Row(
+         mainAxisAlignment: MainAxisAlignment.start,
+         children: [
+           TextButton.icon(
+             onPressed: (){},
+             icon: Icon(Icons.phone_android,size: 30,),
+             label: Text(
+               "发表我的评论：",
+               style: TextStyle(
+                 fontSize: 15,
+                 color: Colors.blue,
+               ),
+             ),
+           ),
+         ],
+       ),
+       TextField(
+         autofocus: true,
+         decoration: InputDecoration(
+         labelText: "评论",
+         hintText: "我想说......",
+         )
+       )
+     ],
+    );
+  }
+}
